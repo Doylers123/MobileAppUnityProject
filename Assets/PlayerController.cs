@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -13,6 +14,8 @@ public class PlayerController : MonoBehaviour {
     private Camera mainCamera;
 
     public GunController theGun;
+
+    public new GameObject gameObject;
 
     // Use this for initialization
     void Start()
@@ -47,6 +50,22 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetMouseButtonUp(0))
             theGun.isFiring = false;
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("test2");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
+    public void Restart()
+    {
+       
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("test2");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     void FixedUpdate() { 

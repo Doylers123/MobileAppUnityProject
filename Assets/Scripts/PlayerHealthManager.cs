@@ -15,11 +15,11 @@ public class PlayerHealthManager : MonoBehaviour {
 
     private Renderer rend;
     private Color storedColor;
-    private GameController gameController;
+    private PlayerController playerController;
     public AudioClip audioClip;
 
     private bool gameOver;
-    private bool restart;
+    public bool restart;
 
     public Text restartText;
     public Text gameOverText;
@@ -29,7 +29,7 @@ public class PlayerHealthManager : MonoBehaviour {
     void Start () {
 
         gameOver = false;
-        restart = false;
+        restart = true;
         restartText.text = "";
         gameOverText.text = "";
 
@@ -41,8 +41,8 @@ public class PlayerHealthManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
         
+
 
         if (currentHealth <= 0)
         {
@@ -56,25 +56,17 @@ public class PlayerHealthManager : MonoBehaviour {
                 restartText.text = "Press 'R' for Restart";
                 restart = true;
 
-              
-            }
-            Debug.Log("test");
-            gameObject.SetActive(false);
-
-            if (restart)
-            {
-                Debug.Log("test");
-
-                
-                if (Input.GetKeyDown(KeyCode.R))
+                if (restart)
                 {
-                    Debug.Log("test2");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    playerController.Restart();
                 }
+               
             }
         }
 
-       
+        
+
+        
 
         if (flashCounter > 0)
             {
@@ -90,13 +82,13 @@ public class PlayerHealthManager : MonoBehaviour {
 
     }
 
-    public void Restart() { 
-}
+    
 
     public void GameOver()
     {
         gameOverText.text = "Game Over!";
         gameOver = true;
+        gameObject.SetActive(false);
     }
 
     public void HurtPlayerScript(int damageAmount)
