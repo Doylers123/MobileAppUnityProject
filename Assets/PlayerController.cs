@@ -14,10 +14,6 @@ public class PlayerController : MonoBehaviour {
 
     public GunController theGun;
 
-    public AudioSource audioSource;
-
-
-
     // Use this for initialization
     void Start()
     {
@@ -47,7 +43,7 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0))
             theGun.isFiring = true;
-        GetComponent<AudioSource>().Play();
+            
 
         if (Input.GetMouseButtonUp(0))
             theGun.isFiring = false;
