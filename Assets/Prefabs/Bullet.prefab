@@ -111,3 +111,4 @@ MonoBehaviour:
   speed: 5
   lifeTime: 3
   damage: 3
+  score: {fileID: 0}

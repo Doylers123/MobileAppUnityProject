@@ -7,35 +7,48 @@ public class PlayerHealthManager : MonoBehaviour {
     public int startHealth;
     private int currentHealth;
 
+
     public float flashLength;
     private float flashCounter;
 
     private Renderer rend;
     private Color storedColor;
+    private GameController gameController;
+    public AudioClip audioClip;
 
-	// Use this for initialization
-	void Start () {
-        currentHealth = startHealth;
 
+
+
+    // Use this for initialization
+    void Start () {
+
+        currentHealth = startHealth;      
         rend = GetComponent<Renderer>();
         storedColor = rend.material.GetColor("_Color");
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(currentHealth <= 0)
         {
+            //Destroy(gameObject);           
             gameObject.SetActive(false);
-        }
+            gameController.GameOver();
+            
 
-        if(flashCounter > 0)
+        }
+        
+        if (flashCounter > 0)
             {
-                flashCounter -= Time.deltaTime;
+            flashCounter -= Time.deltaTime;
             if(flashCounter <= 0)
             {
                rend.material.SetColor("_Color", storedColor);
             }
+           
         }
+
 	}
 
     public void HurtPlayerScript(int damageAmount)

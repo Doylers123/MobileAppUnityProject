@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GunController : MonoBehaviour {
@@ -14,11 +15,14 @@ public class GunController : MonoBehaviour {
 
     public Transform firePoint;
 
+    public Text score;
+    private int count;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+
+    // Use this for initialization
+    void Start () {
+     
+    }
 
     // Update is called once per frame
     void Update() {

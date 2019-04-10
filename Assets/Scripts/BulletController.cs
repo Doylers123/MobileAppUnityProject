@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour {
@@ -9,10 +10,15 @@ public class BulletController : MonoBehaviour {
     public float lifeTime;
 
     public int damage;
-	// Use this for initialization
-	void Start () {
-		
-	}
+
+    public Text score;
+    private int count;
+
+    // Use this for initialization
+    void Start () {
+        count = 0;
+        SetScore();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -21,9 +27,16 @@ public class BulletController : MonoBehaviour {
         if (lifeTime <= 0)
         {
             Destroy(gameObject);
+            
         }
 
 	}
+
+
+    void SetScore()
+    {
+        score.text = "Score: " + count.ToString();
+    }
 
     void OnCollisionEnter(Collision other)
     {
@@ -31,6 +44,8 @@ public class BulletController : MonoBehaviour {
         {
             other.gameObject.GetComponent<EnemyHealthManager>().hurtEnemy(damage);
             Destroy(gameObject);
+            count = count + 1;
+            SetScore();
         }
     }
 

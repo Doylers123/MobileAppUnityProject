@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class EnemyHealthManager : MonoBehaviour {
 
     public int health;
+    public Text scoreText;
+    public int scoreValue;
+    private GameController gameController;
 
     private int currentHealth;
 
@@ -14,12 +18,22 @@ public class EnemyHealthManager : MonoBehaviour {
     private Renderer rend;
     private Color storedColor;
 
+    
+    private int count;
+
     // Use this for initialization
     void Start () {
         currentHealth = health;
 
         rend = GetComponent<Renderer>();
         storedColor = rend.material.GetColor("_Color");
+
+        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
+        if (gameControllerObject != null)
+        {
+            gameController = gameControllerObject.GetComponent<GameController>();
+        }
+
     }
 	
 	// Update is called once per frame
@@ -29,6 +43,8 @@ public class EnemyHealthManager : MonoBehaviour {
         {
             //Destroy(gameObject);
             gameObject.SetActive(false);
+         
+            gameController.AddScore(scoreValue);
         }
         if (flashCounter > 0)
         {
@@ -39,6 +55,11 @@ public class EnemyHealthManager : MonoBehaviour {
             }
         }
 
+    }
+
+    void SetScore ()
+    {
+        scoreText.text = "Score: " + count.ToString ();
     }
 
     public void hurtEnemy(int damage)
