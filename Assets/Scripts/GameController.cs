@@ -14,9 +14,6 @@ public class GameController : MonoBehaviour {
     public float waveWait;
 
     public Text scoreText;
-    
-
-    
     private int score;
 
 

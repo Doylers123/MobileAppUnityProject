@@ -24,6 +24,8 @@ public class EnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //This gets the enemy to look at the Player
         transform.LookAt(thePlayer.transform.position);
 	}
 }
+

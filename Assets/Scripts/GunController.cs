@@ -6,7 +6,7 @@ using UnityEngine;
 public class GunController : MonoBehaviour {
 
     public bool isFiring;
-
+    public AudioSource audioClip;
     public BulletController bullet;
     public float bulletSpeed;
 
@@ -28,9 +28,11 @@ public class GunController : MonoBehaviour {
     void Update() {
         if (isFiring)
         {
+
             shotCount -= Time.deltaTime;
             if (shotCount <= 0)
             {
+                audioClip.Play();
                 shotCount = timeBetweenShots;
                 BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletController;
                 newBullet.speed = bulletSpeed;

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerHealthManager : MonoBehaviour {
 
     public int startHealth;
-    private int currentHealth;
+    public int currentHealth;
 
 
     public float flashLength;
@@ -16,14 +16,14 @@ public class PlayerHealthManager : MonoBehaviour {
     private Renderer rend;
     private Color storedColor;
     private PlayerController playerController;
-    public AudioClip audioClip;
+    public AudioSource audioClip;
+    public AudioSource audioClip1;
 
     private bool gameOver;
-    public bool restart;
+    private bool restart;
 
     public Text restartText;
     public Text gameOverText;
-    public string varKeyInput;
 
     // Use this for initialization
     void Start () {
@@ -55,11 +55,7 @@ public class PlayerHealthManager : MonoBehaviour {
                 Debug.Log("test");
                 restartText.text = "Press 'R' for Restart";
                 restart = true;
-
-                if (restart)
-                {
-                    playerController.Restart();
-                }
+                
                
             }
         }
@@ -89,13 +85,16 @@ public class PlayerHealthManager : MonoBehaviour {
         gameOverText.text = "Game Over!";
         gameOver = true;
         gameObject.SetActive(false);
+        audioClip.Play();
+
     }
 
     public void HurtPlayerScript(int damageAmount)
     {
         currentHealth -= damageAmount;
         flashCounter = flashLength;
-
+        
         rend.material.SetColor("_Color", Color.red);
+        audioClip1.Play();
     }
 }
