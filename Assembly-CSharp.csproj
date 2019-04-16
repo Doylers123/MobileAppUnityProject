@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\BulletController.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Scripts\EnemyHealthManager.cs" />
@@ -64,12 +65,6 @@
      <Compile Include="Assets\Scripts\PlayerHealthManager.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Restart.cs" />
-     <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\CameraLogic.cs" />
-     <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\Demo.cs" />
-     <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\SimpleCharacterControl.cs" />
-     <Compile Include="Assets\Supercyan Character Pack Zombie Sample\Scripts\ZombieCameraLogic.cs" />
-     <Compile Include="Assets\Supercyan Character Pack Zombie Sample\Scripts\ZombieCharacterControl.cs" />
-     <Compile Include="Assets\Supercyan Character Pack Zombie Sample\Scripts\ZombieFree.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
